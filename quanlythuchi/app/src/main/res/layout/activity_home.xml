@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.quanlythuchi.HomeActivity">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:id="@+id/body_container"
+            >
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="30dp"
+                android:elevation="2dp"
+                app:menu="@menu/item_menu"
+                android:background="@drawable/round_corner"
+                app:itemRippleColor="@android:color/white"
+                app:itemIconSize="30dp"
+                app:labelVisibilityMode="unlabeled"
+                app:itemIconTint="@drawable/item_selector"
+                android:id="@+id/bottom_navigation"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tbToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:navigationIcon="@drawable/ic_baseline_headline"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/black" />
+        </RelativeLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/navigationView2"
+            app:headerLayout="@layout/activity_header_menu"
+            app:menu="@menu/drawer_menu"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:itemRippleColor="@android:color/darker_gray"
+            app:itemIconSize="30dp"
+            app:itemIconTint="@drawable/item_selector"
+            android:layout_marginTop="50dp"
+            />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</FrameLayout>

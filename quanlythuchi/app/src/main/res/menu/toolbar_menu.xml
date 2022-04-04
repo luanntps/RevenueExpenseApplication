@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/toolbar_share"
+    android:title="Share"
+    android:icon="@drawable/ic_share"
+    app:showAsAction="always">
+        <menu>
+            <item android:title="Facebook" android:icon="@drawable/ic_facebook" app:showAsAction="never"/>
+            <item android:title="Messenger" android:icon="@drawable/ic_messenger"
+                app:showAsAction="never"/>
+            <item android:title="Twitter" android:icon="@drawable/ic_twitter"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+</menu>
