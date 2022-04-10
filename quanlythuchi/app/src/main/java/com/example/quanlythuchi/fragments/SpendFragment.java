@@ -5,37 +5,27 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quanlythuchi.HomeActivity;
-import com.example.quanlythuchi.MainActivity;
+import com.example.quanlythuchi.activities.HomeActivity;
 import com.example.quanlythuchi.R;
 import com.example.quanlythuchi.adapters.SpendAdapter;
 import com.example.quanlythuchi.helpers.AccountManagerSQLite;
-import com.example.quanlythuchi.helpers.CollectTypeDAO;
 import com.example.quanlythuchi.helpers.RecyclerItemClickListener;
 import com.example.quanlythuchi.helpers.SpendDAO;
 import com.example.quanlythuchi.helpers.SpendTypeDAO;
@@ -45,13 +35,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 /**

@@ -1,12 +1,6 @@
 package com.example.quanlythuchi.adapters;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quanlythuchi.HeaderMenuActivity;
-import com.example.quanlythuchi.HomeActivity;
-import com.example.quanlythuchi.MainActivity;
 import com.example.quanlythuchi.R;
-import com.example.quanlythuchi.fragments.SpendFragment;
-import com.example.quanlythuchi.helpers.AccountManagerSQLite;
-import com.example.quanlythuchi.helpers.CollectDAO;
-import com.example.quanlythuchi.helpers.SpendDAO;
-import com.example.quanlythuchi.helpers.UserDAO;
 import com.example.quanlythuchi.models.User;
 
 import java.util.List;

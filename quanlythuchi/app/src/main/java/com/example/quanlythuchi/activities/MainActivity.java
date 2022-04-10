@@ -1,4 +1,4 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.example.quanlythuchi.R;
 import com.example.quanlythuchi.adapters.UserAdapter;
 import com.example.quanlythuchi.helpers.AccountManagerSQLite;
 import com.example.quanlythuchi.helpers.RecyclerItemClickListener;
@@ -21,7 +22,6 @@ import com.example.quanlythuchi.helpers.UserDAO;
 import com.example.quanlythuchi.models.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rcvUser;

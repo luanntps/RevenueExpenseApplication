@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.quanlythuchi.CollectTypeManagerActivity"
+    tools:context="com.example.quanlythuchi.activities.CollectTypeManagerActivity"
     android:background="@color/card_4">
     <RelativeLayout
         android:layout_width="match_parent"

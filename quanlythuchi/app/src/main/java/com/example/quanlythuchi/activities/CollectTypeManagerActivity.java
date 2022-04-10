@@ -1,4 +1,4 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.ActionMode;
@@ -14,28 +13,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.quanlythuchi.adapters.CollectAdapter;
+import com.example.quanlythuchi.R;
 import com.example.quanlythuchi.adapters.CollectTypeAdapter;
 import com.example.quanlythuchi.helpers.AccountManagerSQLite;
-import com.example.quanlythuchi.helpers.CollectDAO;
 import com.example.quanlythuchi.helpers.CollectTypeDAO;
 import com.example.quanlythuchi.helpers.RecyclerItemClickListener;
-import com.example.quanlythuchi.models.Collect;
 import com.example.quanlythuchi.models.CollectType;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
 
 public class CollectTypeManagerActivity extends AppCompatActivity {
     private RecyclerView rcvCollectType;

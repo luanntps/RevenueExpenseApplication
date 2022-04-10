@@ -1,4 +1,4 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import com.example.quanlythuchi.R;
 
 public class IntroActivity extends AppCompatActivity {
     Button btnStart;

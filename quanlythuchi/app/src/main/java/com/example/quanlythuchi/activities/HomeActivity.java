@@ -1,4 +1,4 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.example.quanlythuchi.R;
 import com.example.quanlythuchi.fragments.CollectFragment;
 import com.example.quanlythuchi.fragments.SpendFragment;
 import com.example.quanlythuchi.fragments.ProfileFragment;

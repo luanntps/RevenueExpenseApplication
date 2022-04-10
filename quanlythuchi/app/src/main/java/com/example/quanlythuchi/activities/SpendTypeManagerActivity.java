@@ -1,4 +1,4 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,10 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.example.quanlythuchi.R;
 import com.example.quanlythuchi.adapters.SpendTypeAdapter;
 import com.example.quanlythuchi.helpers.AccountManagerSQLite;
 import com.example.quanlythuchi.helpers.SpendTypeDAO;

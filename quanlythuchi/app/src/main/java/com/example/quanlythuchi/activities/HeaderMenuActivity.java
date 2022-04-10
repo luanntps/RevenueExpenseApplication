@@ -1,9 +1,11 @@
-package com.example.quanlythuchi;
+package com.example.quanlythuchi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.quanlythuchi.R;
 
 public class HeaderMenuActivity extends AppCompatActivity {
     TextView tvName;
