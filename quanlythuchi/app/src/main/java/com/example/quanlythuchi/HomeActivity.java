@@ -1,5 +1,6 @@
 package com.example.quanlythuchi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("KEY_NAME", "Default");
         //
+
         //
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView2=findViewById(R.id.navigationView2);
@@ -68,13 +70,25 @@ public class HomeActivity extends AppCompatActivity {
                         fragment = new SpendFragment();
                         navigationView.setSelectedItemId(R.id.nav_spend);
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.body_container,fragment).commit();
                         break;}
-                    case R.id.nav_type_manager:{
-
+                    case R.id.nav_collect_type_manager:{
+                        Intent intent = new Intent(HomeActivity.this,CollectTypeManagerActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("username", name);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        break;
+                    }
+                    case R.id.nav_spend_type_manager:{
+                        Intent intent = new Intent(HomeActivity.this,SpendTypeManagerActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("username", name);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
                         break;
                     }
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.body_container,fragment).commit();
                 return false;
             }
         });

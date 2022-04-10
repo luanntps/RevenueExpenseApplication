@@ -145,13 +145,13 @@ public class CollectFragment extends Fragment {
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
         for (CollectType collectType : alCollectType) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("IdCollectType", collectType.getIdCollectType()+"");
+            hashMap.put("ImgCollectType", collectType.getCollectTypeIMG()+"");
             hashMap.put("CollectType", collectType.getNameCollectType()+"");
             list.add(hashMap);
         }
         SimpleAdapter adapter = new SimpleAdapter(context,
                 list, R.layout.collect_type_item,
-                new String[]{"CollectType"}, new int[]{R.id.tvCollectTypeItem});
+                new String[]{"CollectType","ImgCollectType"}, new int[]{R.id.tvTypeCollectName,R.id.imgCollectType});
         spnClasses.setAdapter(adapter);
     }
 
@@ -176,16 +176,20 @@ public class CollectFragment extends Fragment {
         btnAddCollect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, String> hashMap = (HashMap<String, String>) spCollectType.getSelectedItem();
-                int collectAmount=Integer.parseInt(String.valueOf(edtCreateCollectAmount.getText()));
-                String createCollectDate=tvCreateCollectDate.getText().toString();
-                String crateCollectNote=edtCreateCollectNote.getText().toString();
-                String collectType  = hashMap.get("CollectType");
-                collectDAO.createCollect(collectAmount,createCollectDate,userName,collectType,crateCollectNote);
-                collectsList.clear();
-                collectsList=collectDAO.getAllCollect(userName);
-                createListCollectView(collectsList);
-                createDialog.cancel();
+                try {
+                    HashMap<String, String> hashMap = (HashMap<String, String>) spCollectType.getSelectedItem();
+                    int collectAmount = Integer.parseInt(String.valueOf(edtCreateCollectAmount.getText()));
+                    String createCollectDate = tvCreateCollectDate.getText().toString();
+                    String crateCollectNote = edtCreateCollectNote.getText().toString();
+                    String collectType = hashMap.get("CollectType");
+                    collectDAO.createCollect(collectAmount, createCollectDate, userName, collectType, crateCollectNote);
+                    collectsList.clear();
+                    collectsList = collectDAO.getAllCollect(userName);
+                    createListCollectView(collectsList);
+                    createDialog.cancel();
+                }catch (Exception e){
+                    edtCreateCollectAmount.setError("Giá trị thu phải là số hoặc không vượt quá 2.147.483.647.");
+                }
             }
         });
         createDialog.show();

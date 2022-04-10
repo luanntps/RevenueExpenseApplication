@@ -150,13 +150,13 @@ public class SpendFragment extends Fragment {
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
         for (SpendType spendType : alSpendType) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("IdSpendType", spendType.getIdSpendType()+"");
+            hashMap.put("ImgSpendType", spendType.getSpendTypeIMG()+"");
             hashMap.put("SpendType", spendType.getNameSpendType());
             list.add(hashMap);
         }
         SimpleAdapter adapter = new SimpleAdapter(context,
                 list, R.layout.spend_type_item,
-                new String[]{"SpendType"}, new int[]{R.id.tvSpendTypeItem});
+                new String[]{"SpendType","ImgSpendType"}, new int[]{R.id.tvTypeSpendName,R.id.imgSpendType});
         spnClasses.setAdapter(adapter);
     }
 
@@ -182,16 +182,20 @@ public class SpendFragment extends Fragment {
         btnAddSpend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, String> hashMap = (HashMap<String, String>) spSpendType.getSelectedItem();
-                String spendType  = hashMap.get("SpendType");
-                int spendAmount=Integer.parseInt(String.valueOf(edtCreateSpendAmount.getText()));
-                String createSpendDate=tvCreateSpendDate.getText().toString();
-                String crateSpendNote=edtCreateSpendNote.getText().toString();
-                spendDAO.createSpend(spendAmount,createSpendDate,userName,spendType,crateSpendNote);
-                spendsList.clear();
-                spendsList=spendDAO.getAllSpend(userName);
-                createListSpendView(spendsList);
-                createDialog.cancel();
+                try {
+                    HashMap<String, String> hashMap = (HashMap<String, String>) spSpendType.getSelectedItem();
+                    String spendType = hashMap.get("SpendType");
+                    int spendAmount = Integer.parseInt(String.valueOf(edtCreateSpendAmount.getText()));
+                    String createSpendDate = tvCreateSpendDate.getText().toString();
+                    String crateSpendNote = edtCreateSpendNote.getText().toString();
+                    spendDAO.createSpend(spendAmount, createSpendDate, userName, spendType, crateSpendNote);
+                    spendsList.clear();
+                    spendsList = spendDAO.getAllSpend(userName);
+                    createListSpendView(spendsList);
+                    createDialog.cancel();
+                }catch (NumberFormatException e1){
+                edtCreateSpendAmount.setError("Giá trị chi phải là số hoặc không vượt quá 2.147.483.647.");
+                }
             }
         });
         createDialog.show();

@@ -1,5 +1,6 @@
 package com.example.quanlythuchi.helpers;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -13,7 +14,14 @@ public class SpendTypeDAO {
     public SpendTypeDAO(AccountManagerSQLite accountManagerSQLite) {
         this.accountManagerSQLite = accountManagerSQLite;
     }
-
+    public void createSpendType(int imgSpendType, String spendTypeName, String username){
+        SQLiteDatabase db=accountManagerSQLite.getReadableDatabase();
+        ContentValues values=new ContentValues();
+        values.put(accountManagerSQLite.getKeySpendTypeImg(),imgSpendType);
+        values.put(accountManagerSQLite.getKeyUsername(),username);
+        values.put(accountManagerSQLite.getKeyNameSpendType(),spendTypeName);
+        db.insert(accountManagerSQLite.getTableTypeSpend(),null,values);
+    }
     public ArrayList<SpendType> getAllSpendType(String username){
         SQLiteDatabase db=accountManagerSQLite.getReadableDatabase();
         Cursor cursor=db.rawQuery("select *from "+ accountManagerSQLite.getTableTypeSpend()
@@ -44,5 +52,16 @@ public class SpendTypeDAO {
         cursor.moveToFirst();
         SpendType spendType=new SpendType(cursor.getInt(0),cursor.getInt(1),cursor.getString(2));
         return spendType;
+    }
+    public void updateSpendType(String spendTypeName, String idSpendType) {
+        SQLiteDatabase db = accountManagerSQLite.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(accountManagerSQLite.getKeyNameSpendType(), spendTypeName);
+        db.update(accountManagerSQLite.getTableTypeSpend(), values, accountManagerSQLite.getKeyIdSpendType() + "=?", new String[]{idSpendType});
+    }
+
+    public void deleteSpendType(int idSpendType) {
+        SQLiteDatabase db = accountManagerSQLite.getReadableDatabase();
+        db.delete(accountManagerSQLite.getTableTypeSpend(), accountManagerSQLite.getKeyIdSpendType() + "=?", new String[]{idSpendType + ""});
     }
 }

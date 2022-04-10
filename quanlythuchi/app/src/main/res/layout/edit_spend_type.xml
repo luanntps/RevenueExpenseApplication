@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#f8e6cb"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvEditSpendType"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CẬP NHẬT LOẠI CHI"
+            android:textStyle="bold"
+            android:textSize="20dip"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/edtEditSpendTypeName"
+            android:layout_width="350dip"
+            android:hint="Tên mới loại chi"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEditSpendType"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:backgroundTint="@color/black"
+            android:textCursorDrawable="@color/black"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#50000000"
+            android:id="@+id/btnEditSpendType"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/edtEditSpendTypeName"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ic_add"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add"
+                android:layout_marginLeft="10dip"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CẬP NHẬT"
+                android:textStyle="bold"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:layout_toRightOf="@+id/ic_add"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="0dp"
+                android:textAlignment="center"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

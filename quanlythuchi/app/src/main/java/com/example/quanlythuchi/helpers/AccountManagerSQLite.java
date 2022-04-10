@@ -195,4 +195,11 @@ public class AccountManagerSQLite extends SQLiteOpenHelper {
         return KEY_COLLECT_IMG;
     }
 
+    public static String getKeySpendTypeImg() {
+        return KEY_SPEND_TYPE_IMG;
+    }
+
+    public static String getKeyCollectTypeImg() {
+        return KEY_COLLECT_TYPE_IMG;
+    }
 }

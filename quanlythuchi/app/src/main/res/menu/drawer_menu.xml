@@ -4,8 +4,11 @@
         <item android:id="@+id/nav_cash_manager"
             android:title="Quản lý sổ"
             />
-        <item android:id="@+id/nav_type_manager"
-            android:title="Quản lý mục"
+        <item android:id="@+id/nav_collect_type_manager"
+            android:title="Quản lý loại thu"
+            />
+        <item android:id="@+id/nav_spend_type_manager"
+            android:title="Quản lý loại chi"
             />
         <item android:id="@+id/nav_info"
             android:title="Thông tin "
