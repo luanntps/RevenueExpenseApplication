@@ -13,14 +13,14 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TẠO LOẠI THU"
+            android:text="TẠO LOẠI CHI"
             android:textStyle="bold"
             android:textSize="20dip"
             android:layout_marginTop="20dp"/>
         <EditText
             android:id="@+id/edtCreateSpendTypeName"
             android:layout_width="350dip"
-            android:hint="Tên loại thu"
+            android:hint="Tên loại chi"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvCreateSpendType"
             android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THÊM LOẠI THU MỚI"
+                android:text="THÊM LOẠI CHI MỚI"
                 android:textStyle="bold"
                 android:textSize="20dip"
                 android:textColor="@color/white"

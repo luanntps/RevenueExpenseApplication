@@ -12,23 +12,32 @@ tools:context="com.example.quanlythuchi.activities.HomeActivity">
         >
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpViewPager"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:id="@+id/body_container"
-            >
-            <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_marginTop="50dp">
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="30dp"
-                android:elevation="2dp"
-                app:menu="@menu/item_menu"
-                android:background="@drawable/round_corner"
-                app:itemRippleColor="@android:color/white"
-                app:itemIconSize="30dp"
-                app:labelVisibilityMode="unlabeled"
-                app:itemIconTint="@drawable/item_selector"
-                android:id="@+id/bottom_navigation"/>
+                android:layout_height="match_parent"
+                android:id="@+id/body_container"
+                >
+            </RelativeLayout>
+        </androidx.viewpager.widget.ViewPager>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            android:elevation="2dp"
+            app:menu="@menu/item_menu"
+            android:background="@drawable/round_corner"
+            app:itemRippleColor="@android:color/white"
+            app:itemIconSize="30dp"
+            app:labelVisibilityMode="unlabeled"
+            app:itemIconTint="@drawable/item_selector"
+            android:id="@+id/bottom_navigation"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
