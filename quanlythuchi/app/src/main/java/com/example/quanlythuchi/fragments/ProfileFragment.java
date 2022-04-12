@@ -136,13 +136,16 @@ public class ProfileFragment extends Fragment {
         for(Collect s:alCollect){
             totalCollect+=(double)s.getCollectAmount();
         }
-        totalRevenue=totalCollect-totalSpend;
+        totalRevenue=Math.abs(totalCollect-totalSpend);
         tvTotalSpendAmount.setText(VNDFormat(totalSpend)+" VND");
         tvTotalCollectAmount.setText(VNDFormat(totalCollect)+" VND");
-        tvTotalRevenue.setText(VNDFormat(totalRevenue)+" VND");
-        if(totalRevenue<0){
+        if( (totalCollect-totalSpend) >0){
+            tvTotalRevenue.setText(VNDFormat(totalRevenue)+" VND");
+            tvTotalRevenue.setTextColor(Color.parseColor("#9050C878"));
+        }else {
             tvTotalRevenue.setTextColor(Color.parseColor("#90FF0000"));
-        }else tvTotalRevenue.setTextColor(Color.parseColor("#9050C878"));
+            tvTotalRevenue.setText("-"+VNDFormat(totalRevenue)+" VND");
+        }
     }
 
     public void SetDateRevenue() {
