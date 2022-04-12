@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.quanlythuchi.R;
-import com.example.quanlythuchi.models.CollectType;
+import com.example.quanlythuchi.models.Spend;
+import com.example.quanlythuchi.models.SpendType;
 import com.example.quanlythuchi.models.Spend;
 import com.example.quanlythuchi.models.SpendType;
 
@@ -26,6 +27,20 @@ public class SpendDAO {
             cursor.moveToFirst();
             do{
                 list.add(new Spend(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5),cursor.getString(6)));
+            }while(cursor.moveToNext());
+        }
+        return list;
+    }
+    public ArrayList<Spend> getSpendByDate(String username, String date){
+        SQLiteDatabase db=accountManagerSQLite.getReadableDatabase();
+        Cursor cursor=db.rawQuery("select *from "+ accountManagerSQLite.getTableSpend()
+                +" where "+ accountManagerSQLite.getKeyUsername()+"="+"'"+username+"'"+" and "
+                + accountManagerSQLite.getKeySpendDate() + "=" + "'" + date + "'", null);
+        ArrayList<Spend> list=new ArrayList<>();
+        if(cursor.getCount()!=0){
+            cursor.moveToFirst();
+            do{
+                list.add(new Spend(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5), cursor.getString(6)));
             }while(cursor.moveToNext());
         }
         return list;

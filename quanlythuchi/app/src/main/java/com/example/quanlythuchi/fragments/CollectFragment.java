@@ -1,5 +1,6 @@
 package com.example.quanlythuchi.fragments;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -35,6 +37,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -48,7 +51,7 @@ import java.util.Locale;
 public class CollectFragment extends Fragment {
     private RecyclerView rcvCollect;
     private CollectAdapter collectAdapter;
-    private FloatingActionButton fabCreateCollect;
+    private FloatingActionButton fabCreateCollect, fabCalendarCollect;
     private String userName;
     private Context context;
     private ArrayList<Collect> collectsList;
@@ -104,6 +107,7 @@ public class CollectFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_collect, container, false);
         rcvCollect = view.findViewById(R.id.rcvCollect);
         fabCreateCollect=view.findViewById(R.id.fabCreateCollect);
+        fabCalendarCollect=view.findViewById(R.id.fabCalendarCollect);
         //
         context=this.getContext();
         accountManagerSQLite=new AccountManagerSQLite(context);
@@ -123,6 +127,14 @@ public class CollectFragment extends Fragment {
                 diaglogAddCollect();
             }
         });
+        //
+        fabCalendarCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SetDateCollect();
+            }
+        });
+
         return view;
     }
 
@@ -245,9 +257,6 @@ public class CollectFragment extends Fragment {
         RelativeLayout btnEditCollect=editCollect.findViewById(R.id.btnEditCollect);
         setDataSpinner(spEditCollectType);
 
-        /*edtEditCollectAmount.setText(collectsList.get(position).getCollectAmount()+"");
-        spEditCollectType.setSelection(collectsList.get(position).getIdCollectType()-1);
-        edtEditCollectNote.setText(collectsList.get(position).getNote()+"");*/
         btnEditCollect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -301,5 +310,32 @@ public class CollectFragment extends Fragment {
 
     public void setPosition(int position){
         this.position=position;
+    }
+
+    public void SetDateCollect() {
+        Calendar calendar = Calendar.getInstance();
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day0fMonth) {
+                String stringMonth, stringDay, stringYear, date;
+                stringYear=year+"";
+                if(month<10){
+                    stringMonth="0"+(month+1);
+                }else stringMonth=month+"";
+                if(day0fMonth<10){
+                    stringDay="0"+day0fMonth;
+                }else stringDay=day0fMonth+"";
+                date=stringDay+"-"+stringMonth+"-"+stringYear;
+                collectsList.clear();
+                collectsList=collectDAO.getCollectByDate(userName,date);
+                createListCollectView(collectsList);
+            }
+        }, year, month, day);
+        datePickerDialog.show();
     }
 }

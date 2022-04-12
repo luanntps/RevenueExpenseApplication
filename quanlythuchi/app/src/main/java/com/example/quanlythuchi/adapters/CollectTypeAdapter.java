@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +33,8 @@ public class CollectTypeAdapter extends RecyclerView.Adapter<CollectTypeAdapter.
     @Override
     public CollectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.collect_type_item,parent,false);
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.anim_scale);
+        view.startAnimation(animation);
         return new CollectViewHolder(view);
     }
 

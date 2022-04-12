@@ -1,18 +1,84 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/card_4"
-    tools:context="com.example.quanlythuchi.fragments.ProfileFragment">
+    tools:context="com.example.quanlythuchi.fragments.ProfileFragment"
+    android:padding="30dp">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/profile_text"
-        android:textSize="30dip"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:id="@+id/giatrithu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng thu: "
+        android:textStyle="bold"
+        android:textSize="25dip"
+        />
+    <TextView
 
-</FrameLayout>
+        android:id="@+id/tvTotalCollectAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng thu: "
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_toRightOf="@+id/giatrithu"
+        android:textColor="#90FFFF00"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/giatrichi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng chi: "
+        android:textStyle="bold"
+        android:layout_below="@+id/giatrithu"
+        android:textSize="25dip"
+        />
+    <TextView
+
+        android:id="@+id/tvTotalSpendAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng chi: "
+        android:textStyle="bold"
+        android:textSize="20dip"
+        android:layout_alignTop="@+id/giatrichi"
+        android:layout_toRightOf="@+id/giatrichi"
+        android:textColor="#900000FF"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/loinhuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/giatrichi"
+        android:textStyle="bold"
+        android:textSize="25dip"
+        android:text="Lợi nhuận: "/>
+
+    <TextView
+        android:id="@+id/tvTotalRevenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/loinhuan"
+        android:layout_toRightOf="@+id/loinhuan"
+        android:text="Tổng chi: "
+        android:textColor="#a3e4d7"
+        android:textSize="20dip"
+        android:textStyle="bold" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCalendarRevenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#e294eb"
+        app:backgroundTint="#e294eb"
+        android:layout_marginRight="10dp"
+        app:srcCompat="@drawable/ic_calendar" />
+</RelativeLayout>

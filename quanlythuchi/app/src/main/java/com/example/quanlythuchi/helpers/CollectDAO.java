@@ -31,6 +31,20 @@ public class CollectDAO {
         }
         return list;
     }
+    public ArrayList<Collect> getCollectByDate(String username, String date){
+        SQLiteDatabase db=accountManagerSQLite.getReadableDatabase();
+        Cursor cursor=db.rawQuery("select *from "+ accountManagerSQLite.getTableCollect()
+                +" where "+ accountManagerSQLite.getKeyUsername()+"="+"'"+username+"'"+" and "
+                + accountManagerSQLite.getKeyCollectDate() + "=" + "'" + date + "'", null);
+        ArrayList<Collect> list=new ArrayList<>();
+        if(cursor.getCount()!=0){
+            cursor.moveToFirst();
+            do{
+                list.add(new Collect(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5), cursor.getString(6)));
+            }while(cursor.moveToNext());
+        }
+        return list;
+    }
     public void createCollect(int collectAmount, String date, String username, String collectTypeName, String note){
         SQLiteDatabase db=accountManagerSQLite.getReadableDatabase();
         CollectTypeDAO collectTypeDAO=new CollectTypeDAO(accountManagerSQLite);

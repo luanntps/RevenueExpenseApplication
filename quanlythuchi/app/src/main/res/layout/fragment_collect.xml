@@ -61,6 +61,16 @@
             android:layout_width="match_parent"/>
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCalendarCollect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="180dp"
+        android:backgroundTint="#f2e635"
+        app:backgroundTint="#f2e635"
+        android:layout_marginRight="40dp"
+        app:srcCompat="@drawable/ic_calendar" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCreateCollect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
