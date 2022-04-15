@@ -232,9 +232,9 @@ public class CollectFragment extends Fragment {
                 collectsList=collectDAO.getAllCollect(userName);
                 collectDAO.deleteCollect(collectsList.get(position).getId());
                 collectsList.clear();
+                actionMode.finish();
                 collectsList=collectDAO.getAllCollect(userName);
                 createListCollectView(collectsList);
-                actionMode.finish();
             }
         });
         deleteUser.setButton(Dialog.BUTTON_NEGATIVE, "HỦY", new DialogInterface.OnClickListener() {

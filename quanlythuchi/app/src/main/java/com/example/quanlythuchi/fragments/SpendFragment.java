@@ -264,9 +264,10 @@ public class SpendFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 spendDAO.deleteSpend(spendsList.get(position).getId());
                 spendsList.clear();
+                actionMode.finish();
                 spendsList=spendDAO.getAllSpend(userName);
                 createListSpendView(spendsList);
-                actionMode.finish();
+
             }
         });
         deleteUser.setButton(Dialog.BUTTON_NEGATIVE, "HỦY", new DialogInterface.OnClickListener() {

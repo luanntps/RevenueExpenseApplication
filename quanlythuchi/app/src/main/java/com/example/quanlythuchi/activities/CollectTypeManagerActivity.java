@@ -121,9 +121,10 @@ public class CollectTypeManagerActivity extends AppCompatActivity {
                 collectTypesList=collectTypeDAO.getAllCollectType(userName);
                 collectTypeDAO.deleteCollectType(collectTypesList.get(position).getIdCollectType());
                 collectTypesList.clear();
+                actionMode.finish();
                 collectTypesList=collectTypeDAO.getAllCollectType(userName);
                 createListCollectTypeView(collectTypesList);
-                actionMode.finish();
+
             }
         });
         deleteUser.setButton(Dialog.BUTTON_NEGATIVE, "HỦY", new DialogInterface.OnClickListener() {

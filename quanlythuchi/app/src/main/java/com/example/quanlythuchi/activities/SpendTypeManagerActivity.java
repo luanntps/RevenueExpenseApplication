@@ -121,9 +121,10 @@ public class SpendTypeManagerActivity extends AppCompatActivity {
                 spendTypesList=spendTypeDAO.getAllSpendType(userName);
                 spendTypeDAO.deleteSpendType(spendTypesList.get(position).getIdSpendType());
                 spendTypesList.clear();
+                actionMode.finish();
                 spendTypesList=spendTypeDAO.getAllSpendType(userName);
                 createListSpendTypeView(spendTypesList);
-                actionMode.finish();
+
             }
         });
         deleteUser.setButton(Dialog.BUTTON_NEGATIVE, "HỦY", new DialogInterface.OnClickListener() {
