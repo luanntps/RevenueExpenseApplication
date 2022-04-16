@@ -125,6 +125,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     }
+                    case R.id.nav_quit:{
+                        finish();
+                    }
                 }
                 return false;
             }

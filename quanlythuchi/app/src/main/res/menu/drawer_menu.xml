@@ -10,8 +10,8 @@
         <item android:id="@+id/nav_spend_type_manager"
             android:title="Quản lý loại chi"
             />
-        <item android:id="@+id/nav_info"
-            android:title="Thông tin "
+        <item android:id="@+id/nav_quit"
+            android:title="Thoát "
             />
     </group>
 </menu>
